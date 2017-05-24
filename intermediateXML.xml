@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<order>
+  <header>
+    <order-id>1</order-id>
+    <net-amount>59.97</net-amount>
+    <customer-details>
+      <username>DP</username>
+      <firstname>Debasis</firstname>
+      <lastname>Panda</lastname>
+    </customer-details>
+  </header>
+  <order-item>
+    <element>
+      <quantity>10</quantity>
+      <product-id>364</product-id>
+      <title>Pied Piper</title>
+      <price>29.98</price>
+    </element>
+    <element>
+      <quantity>50</quantity>
+      <product-id>299</product-id>
+      <title>Inception</title>
+      <price>29.99</price>
+    </element>
+  </order-item>
+</order>
