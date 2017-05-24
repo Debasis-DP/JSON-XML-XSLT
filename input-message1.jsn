@@ -1,0 +1,26 @@
+{
+    "header" : {
+	"order id" : 1,
+	"net amount" : 59.97,
+	"customer details" : {
+        	"username" : "DP",
+		"firstname" : "Debasis",
+		"lastname" : "Panda"
+	}
+	},
+	"order item" : [
+            {
+		"quantity" : 10,
+		"product id" : 364,
+		"title" : "Pied Piper",
+		"price" : 29.98
+            },
+            {
+		"quantity" : 50,
+		"product id" : 299,
+		"title" : "Inception",
+		"price" : 29.99
+            }
+
+    ]
+}
