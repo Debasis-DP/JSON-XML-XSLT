@@ -5,7 +5,7 @@
  */
 package example;
 
-import java.io.BufferedWriter;
+
 import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.FileWriter;
@@ -15,23 +15,15 @@ import java.io.StringWriter;
 import java.io.Writer;
 
 import java.util.Locale;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
-import javax.xml.transform.dom.DOMResult;
-import javax.xml.transform.stream.StreamSource;
 import org.apache.xml.serialize.OutputFormat;
 import org.apache.xml.serialize.XMLSerializer;
 
 import org.milyn.Smooks;
 import org.milyn.SmooksException;
 import org.milyn.container.ExecutionContext;
-import org.milyn.event.report.HtmlReportGenerator;
 import org.milyn.io.StreamUtils;
 
 import org.milyn.payload.StringResult;
-import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 
 

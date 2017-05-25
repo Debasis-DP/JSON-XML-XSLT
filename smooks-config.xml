@@ -3,5 +3,5 @@
                       xmlns:json="http://www.milyn.org/xsd/smooks/json-1.1.xsd"
                       xmlns:jb="http://www.milyn.org/xsd/smooks/javabean-1.2.xsd">
     
-    <json:reader rootName="order" keyWhitspaceReplacement="-" />
+    <json:reader  keyWhitspaceReplacement="-" />
 </smooks-resource-list>

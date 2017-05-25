@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<order>
+<json>
   <header>
     <order-id>1</order-id>
     <net-amount>59.97</net-amount>
     <customer-details>
-      <username>DP</username>
+      <Username>DP</Username>
       <firstname>Debasis</firstname>
       <lastname>Panda</lastname>
     </customer-details>
@@ -23,4 +23,4 @@
       <price>29.99</price>
     </element>
   </order-item>
-</order>
+</json>

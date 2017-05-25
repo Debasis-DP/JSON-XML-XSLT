@@ -4,14 +4,14 @@
     <xsl:output method="xml" indent="yes"/>
 
   
-    <xsl:template match="order">
+    <xsl:template match="*">
         <order>
             <header>
                 <orderid> <xsl:value-of select="header/order-id" /> </orderid>
                 <amount> 
                     <xsl:value-of select="header/net-amount" />
                 </amount>
-                <username> <xsl:value-of select="header/customer-details/username" /> </username>
+                <username> <xsl:value-of select="header/customer-details/Username" /> </username>
                 <name> <xsl:value-of select="header/customer-details/firstname" /><xsl:text> </xsl:text><xsl:value-of select="header/customer-details/lastname" /> </name>
             </header>
             <productdetails>
