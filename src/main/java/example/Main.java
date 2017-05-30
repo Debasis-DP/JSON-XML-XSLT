@@ -158,8 +158,8 @@ public class Main {
 
         
         try {
-            File stylesheet = new File("article.xsl");
-            File datafile = new File("intermediateXML.xml");
+            File stylesheet = new File("article2.xsl");
+            File datafile = new File("input-message2.jsn");
             
             DocumentBuilder builder = factory.newDocumentBuilder();
             document = builder.parse(datafile);
