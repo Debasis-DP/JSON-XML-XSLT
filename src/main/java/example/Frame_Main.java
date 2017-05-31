@@ -8,13 +8,11 @@ package example;
 
 import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.Writer;
 
-import java.util.Locale;
 import org.apache.xml.serialize.OutputFormat;
 import org.apache.xml.serialize.XMLSerializer;
 
@@ -43,7 +41,6 @@ import javax.xml.transform.stream.StreamSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.*;
 
-import java.io.BufferedWriter;
 import javax.xml.transform.*;
 
 /**
@@ -61,23 +58,16 @@ public class Frame_Main {
     protected Frame_Main() throws IOException, SAXException, SmooksException {
         smooks = new Smooks("smooks-config.xml");
     }
+    
     protected String runSmooksTransform(ExecutionContext executionContext) throws IOException,SAXException, SmooksException{
         try{
-            Locale defaultLocale = Locale.getDefault();
-            Locale.setDefault(new Locale("en","IN"));
-            
             StringResult result = new StringResult();
-            
             smooks.filterSource(executionContext, new StreamSource(new ByteArrayInputStream(messageIn)), result);
-            Locale.setDefault(defaultLocale);
             return result.toString();
-            
         } finally {
             smooks.close();
-        }
-        
+        }        
     }
-
     
     public static String main(String src_file, String intermediate_file) throws IOException, SAXException, SmooksException {
        messageIn = readInputMessage(src_file);
@@ -87,20 +77,12 @@ public class Frame_Main {
        
        Frame_Main mainSmooks = new Frame_Main();
        ExecutionContext executionContext = mainSmooks.smooks.createExecutionContext();
-       String out = new String(mainSmooks.runSmooksTransform(executionContext));
-       String indented = format(out);
-       System.out.println("______________________Intermediate XML______________________________\n");
-       System.out.println(indented);
-       System.out.println("_______________________________________________________________\n");
        
-       try {
-            BufferedWriter bufferedWriter_out = new BufferedWriter( new FileWriter (intermediate_file));
-            bufferedWriter_out.write(indented);
-            bufferedWriter_out.close();       
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-       return indented;
+       String indentedXML = format( mainSmooks.runSmooksTransform(executionContext) );
+       System.out.println("______________________Intermediate XML______________________________\n");
+       System.out.println(indentedXML);
+       System.out.println("_______________________________________________________________\n");
+       return indentedXML;
     }
     
     private static byte[] readInputMessage(String file_name) {
@@ -123,9 +105,7 @@ public class Frame_Main {
             DocumentBuilder db = dbf.newDocumentBuilder();
             InputSource is = new InputSource(new StringReader(in));
             return db.parse(is);
-        } catch (ParserConfigurationException e) {
-            throw new RuntimeException(e);
-        } catch (SAXException e) {
+        } catch (ParserConfigurationException | SAXException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
             e.printStackTrace();
@@ -143,8 +123,7 @@ public class Frame_Main {
             format.setIndent(2);
             Writer out = new StringWriter();
             XMLSerializer serializer = new XMLSerializer(out, format);
-            serializer.serialize(document);
- 
+            serializer.serialize(document); 
             return out.toString();
         } catch (IOException e) {
             e.printStackTrace();
@@ -171,7 +150,7 @@ public class Frame_Main {
             Transformer transformer = tFactory.newTransformer(stylesource);
             
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "5");
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
             
             DOMSource source = new DOMSource(document);
             StringWriter writer = new StringWriter();
@@ -221,13 +200,9 @@ public class Frame_Main {
             }
 
             x.printStackTrace();
-        } catch (ParserConfigurationException pce) {
-            // Parser with specified options can't be built
-            pce.printStackTrace();
-        } catch (IOException ioe) {
-            // I/O error
-            ioe.printStackTrace();
-        }
+        } catch (ParserConfigurationException | IOException e) {
+          e.printStackTrace();
+        } 
         return finalString;
     } // main
 }
