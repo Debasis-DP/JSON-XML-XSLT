@@ -62,13 +62,13 @@ public class Main {
     }
     protected String runSmooksTransform(ExecutionContext executionContext) throws IOException,SAXException, SmooksException{
         try{
-            Locale defaultLocale = Locale.getDefault();
-            Locale.setDefault(new Locale("en","IN"));
+            //Locale defaultLocale = Locale.getDefault();
+            //Locale.setDefault(new Locale("en","IN"));
             
             StringResult result = new StringResult();
             
             smooks.filterSource(executionContext, new StreamSource(new ByteArrayInputStream(messageIn)), result);
-            Locale.setDefault(defaultLocale);
+            //Locale.setDefault(defaultLocale);
             return result.toString();
             
         } finally {
@@ -87,7 +87,7 @@ public class Main {
        
        Main mainSmooks = new Main();
        ExecutionContext executionContext = mainSmooks.smooks.createExecutionContext();
-       String out = new String(mainSmooks.runSmooksTransform(executionContext));
+       String out = mainSmooks.runSmooksTransform(executionContext);
        String indented = format(out);
        System.out.println("______________________Intermediate XML______________________________\n");
        System.out.println(indented);
@@ -158,8 +158,8 @@ public class Main {
 
         
         try {
-            File stylesheet = new File("article2.xsl");
-            File datafile = new File("input-message2.jsn");
+            File stylesheet = new File("article.xsl");
+            File datafile = new File("intermediateXML.xml");
             
             DocumentBuilder builder = factory.newDocumentBuilder();
             document = builder.parse(datafile);
