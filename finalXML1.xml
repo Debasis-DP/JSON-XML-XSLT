@@ -1,22 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?><order>
-     <header>
-          <orderid>1</orderid>
-          <amount>59.97</amount>
-          <username>DP</username>
-          <name>Debasis Panda</name>
-     </header>
-     <productdetails>
-          <element>
-               <quantity>10</quantity>
-               <productid>364</productid>
-               <title>Pied Piper</title>
-               <price>2998</price>
-          </element>
-          <element>
-               <quantity>50</quantity>
-               <productid>299</productid>
-               <title>Inception</title>
-               <price>2999</price>
-          </element>
-     </productdetails>
+<?xml version="1.0" encoding="UTF-8"?>
+<order>
+  <header>
+    <orderid>1</orderid>
+    <amount>59.97</amount>
+    <username>DP</username>
+    <name>Debasis Panda</name>
+  </header>
+  <productdetails>
+    <element>
+      <quantity>10</quantity>
+      <productid>364</productid>
+      <title>Pied Piper</title>
+      <price>2998</price>
+    </element>
+    <element>
+      <quantity>50</quantity>
+      <productid>299</productid>
+      <title>Inception</title>
+      <price>2999</price>
+    </element>
+  </productdetails>
 </order>

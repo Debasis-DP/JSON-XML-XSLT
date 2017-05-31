@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-    <xsl:output method="xml" indent="yes"/>
-
-  
+    <xsl:output method="xml" indent="yes"/>  
     <xsl:template match="*">
+        <xsl:call-template name="body" />
+    </xsl:template>
+    
+    <xsl:template name="body">
+        <xsl:text>&#xa;</xsl:text>
         <order>
             <header>
                 <orderid> <xsl:value-of select="header/order-id" /> </orderid>
@@ -24,8 +26,6 @@
                     </element>
                 </xsl:for-each>
             </productdetails>
-        </order>
-        
+        </order>        
     </xsl:template>
-
 </xsl:stylesheet>

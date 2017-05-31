@@ -1,12 +1,12 @@
 {
     "header" : {
-	"orderId" : 1,
-	"netAmount" : 59.97,
+	"order id" : 1,
+	"net amount" : 59.97,
 	"customer details" : {
         	"Username" : "DP",
 		"firstname" : "Debasis",
 		"lastname" : "Panda"
-                }
+	}
 	},
 	"order item" : [
             {
@@ -22,5 +22,5 @@
 		"price" : 29.99
             }
 
-        ]
+    ]
 }
